@@ -1,0 +1,260 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 30,
+        "patch": 0
+    },
+    "configurePresets":
+    [
+        {
+            "name": "MSVC++",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER":   "cl",
+                "CMAKE_CXX_COMPILER": "cl"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "G++",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER":   "gcc",
+                "CMAKE_CXX_COMPILER": "g++"
+            }
+        },
+        {
+            "name": "Clang++",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER":   "clang",
+                "CMAKE_CXX_COMPILER": "clang++"
+            }
+        },
+        {
+            "name": "Intel oneAPI C++ [Windows]",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            },
+            "cacheVariables": {
+                "CMAKE_C_COMPILER":   "icx",
+                "CMAKE_CXX_COMPILER": "icx"
+            }
+        },
+        {
+            "name": "Intel oneAPI C++ [Linux]",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Linux"
+            },
+            "cacheVariables": {
+                "CMAKE_C_COMPILER":   "icx",
+                "CMAKE_CXX_COMPILER": "icpx"
+            }
+        },
+        {
+            "name": "MSVC++ (Debug)",
+            "inherits": "MSVC++",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "MSVC++ (Release)",
+            "inherits": "MSVC++",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "MSVC++ (Release) (with Full Report)",
+            "inherits": "MSVC++ (Release)",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "FATCXX_MSVC_FULLREPORT" : "Enabled"
+            }
+        },
+        {
+            "name": "G++ (Debug)",
+            "inherits": "G++",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "G++ (Release)",
+            "inherits": "G++",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "G++ (Debug) (with Static Analysis)",
+            "inherits": "G++ (Debug)",
+            "cacheVariables": {
+                "FATCXX_GCC_ANALYZER" : "Enabled"
+            }
+        },
+        {
+            "name": "G++ (Release) (with Static Analysis)",
+            "inherits": "G++ (Release)",
+            "cacheVariables": {
+                "FATCXX_GCC_ANALYZER" : "Enabled"
+            }
+        },
+        {
+            "name": "Clang++ (Debug)",
+            "inherits": "Clang++",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Clang++ (Release)",
+            "inherits": "Clang++",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "Clang++ (Debug) (with Static Analysis)",
+            "inherits": "Clang++ (Debug)",
+            "cacheVariables": {
+                "CMAKE_CXX_CLANG_TIDY": "clang-tidy;-config-file=${sourceDir}/.clang-tidy"
+            }
+        },
+        {
+            "name": "Clang++ (Release) (with Static Analysis)",
+            "inherits": "Clang++ (Release)",
+            "cacheVariables": {
+                "CMAKE_CXX_CLANG_TIDY": "clang-tidy;-config-file=${sourceDir}/.clang-tidy"
+            }
+        },
+        {
+            "name": "Intel oneAPI C++ (Debug) [Windows]",
+            "inherits": "Intel oneAPI C++ [Windows]",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Intel oneAPI C++ (Release) [Windows]",
+            "inherits": "Intel oneAPI C++ [Windows]",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "Intel oneAPI C++ (Debug) [Linux]",
+            "inherits": "Intel oneAPI C++ [Linux]",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Intel oneAPI C++ (Release) [Linux]",
+            "inherits": "Intel oneAPI C++ [Linux]",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ],
+    "buildPresets":
+    [
+        {
+            "name"           : "MSVC++ (Debug)",
+            "configurePreset": "MSVC++ (Debug)",
+            "jobs"           : 8
+        },
+        {
+            "name"           : "MSVC++ (Release)",
+            "configurePreset": "MSVC++ (Release)",
+            "jobs"           : 8
+        },
+        {
+            "name"           : "MSVC++ (Release) (with Full Report)",
+            "configurePreset": "MSVC++ (Release) (with Full Report)",
+            "jobs"           : 8
+        },
+        {
+            "name"           : "G++ (Debug)",
+            "configurePreset": "G++ (Debug)",
+            "jobs"           : 8
+        },
+        {
+            "name"           : "G++ (Release)",
+            "configurePreset": "G++ (Release)",
+            "jobs"           : 8
+        },
+        {
+            "name"           : "G++ (Debug) (with Static Analysis)",
+            "configurePreset": "G++ (Debug) (with Static Analysis)",
+            "jobs"           : 8
+        },
+        {
+            "name"           : "G++ (Release) (with Static Analysis)",
+            "configurePreset": "G++ (Release) (with Static Analysis)",
+            "jobs"           : 8
+        },
+        {
+            "name"           : "Clang++ (Debug)",
+            "configurePreset": "Clang++ (Debug)",
+            "jobs"           : 8
+        },
+        {
+            "name"           : "Clang++ (Release)",
+            "configurePreset": "Clang++ (Release)",
+            "jobs"           : 8
+        },
+        {
+            "name"           : "Clang++ (Debug) (with Static Analysis)",
+            "configurePreset": "Clang++ (Debug) (with Static Analysis)",
+            "jobs"           : 8
+        },
+        {
+            "name"           : "Clang++ (Release) (with Static Analysis)",
+            "configurePreset": "Clang++ (Release) (with Static Analysis)",
+            "jobs"           : 8
+        },
+        {
+            "name"           : "Intel oneAPI C++ (Debug) [Windows]",
+            "configurePreset": "Intel oneAPI C++ (Debug) [Windows]",
+            "jobs"           : 8
+        },
+        {
+            "name"           : "Intel oneAPI C++ (Release) [Windows]",
+            "configurePreset": "Intel oneAPI C++ (Release) [Windows]",
+            "jobs"           : 8
+        },
+        {
+            "name"           : "Intel oneAPI C++ (Debug) [Linux]",
+            "configurePreset": "Intel oneAPI C++ (Debug) [Linux]",
+            "jobs"           : 8
+        },
+        {
+            "name"           : "Intel oneAPI C++ (Release) [Linux]",
+            "configurePreset": "Intel oneAPI C++ (Release) [Linux]",
+            "jobs"           : 8
+        }
+    ]
+}
