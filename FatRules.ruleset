@@ -1,26 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="FatRules" Description=" " ToolsVersion="17.0">
   <Rules AnalyzerId="Microsoft.Analyzers.NativeCodeAnalysis" RuleNamespace="Microsoft.Rules.Native">
-    <Rule Id="C26100" Action="Warning" />
-    <Rule Id="C26101" Action="Warning" />
-    <Rule Id="C26102" Action="Warning" />
-    <Rule Id="C26105" Action="Warning" />
-    <Rule Id="C26106" Action="Warning" />
-    <Rule Id="C26110" Action="Warning" />
-    <Rule Id="C26111" Action="Warning" />
-    <Rule Id="C26112" Action="Warning" />
-    <Rule Id="C26115" Action="Warning" />
-    <Rule Id="C26116" Action="Warning" />
-    <Rule Id="C26117" Action="Warning" />
-    <Rule Id="C26130" Action="Warning" />
-    <Rule Id="C26135" Action="Warning" />
-    <Rule Id="C26136" Action="Warning" />
-    <Rule Id="C26137" Action="Warning" />
-    <Rule Id="C26138" Action="Warning" />
-    <Rule Id="C26160" Action="Warning" />
-    <Rule Id="C26165" Action="Warning" />
-    <Rule Id="C26166" Action="Warning" />
-    <Rule Id="C26167" Action="Warning" />
     <Rule Id="C26400" Action="Warning" />
     <Rule Id="C26401" Action="Warning" />
     <Rule Id="C26402" Action="Warning" />
