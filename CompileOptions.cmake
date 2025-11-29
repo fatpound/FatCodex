@@ -70,6 +70,7 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     target_compile_options (CompileOptions INTERFACE
         ##################################
         -pedantic # Conform to ISO/IEC Standard
+        -fexperimental-library # for C++20 jthread
 
 
         ## Active warnings
