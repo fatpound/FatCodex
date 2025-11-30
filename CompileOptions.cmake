@@ -188,8 +188,6 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
         /external:anglebrackets # Treat includes with angular brackets as external headers
         /external:W0 # Do NOT emit warnings for external headers
 
-        /wd4061 # Not all enum identifiers of an Enum (class) are handled by a switch statement (When there is a default case)
-        /wd4062 # Not all enum identifiers of an Enum (class) are handled by a switch statement (When there is NOT a default case)
         /wd4324 # structure was padded due to alignment specifier
         /wd4464 # relative include path contains '..'
         /wd4514 # Unreferenced inline function has been removed
