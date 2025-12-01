@@ -191,6 +191,7 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
         /wd4324 # structure was padded due to alignment specifier
         /wd4464 # relative include path contains '..'
         /wd4514 # Unreferenced inline function has been removed
+        /wd4684 # 'UDT': possible change in behavior, change in UDT return calling convention
         /wd4820 # n bytes padding added after construct MyClass
         /wd5045 # Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
         /wd5246 # outdated warning, the initialization of a subobject should be wrapped in braces
